@@ -2,37 +2,40 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.previously{
+  border: 1px solid red;
+  margin: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.trackContainer{
+  border: 1px solid purple;
+  margin: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.trackContainer span{
+  font-weight: normal;
+  font-size: .8em
+}
+
+.messageContainer{
+  border: 1px solid green;
+  margin: auto;
   color: white;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/eb/Magic_eight_ball.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 400px;
+  /* width: fit-content; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -5;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.messageContainer p {
+  font-size: .8em;
+  /* border: 1px solid yellow; */
+  max-width: 90px;
 }

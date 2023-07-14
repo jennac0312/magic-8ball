@@ -1,8 +1,13 @@
 import React from 'react'
+import { useState } from 'react'
 
 function Button(props) {
+
   return (
-    <button onClick={props.randomResponse}>Try Again</button>
+    <div>
+        <button onClick={props.randomResponse}>Try Again</button>
+        <span>Total clicks: {props.clicks}</span>
+    </div>
   )
 }
 
