@@ -4,18 +4,16 @@ import Message from './components/Message';
 import Button from './components/Button';
 
 import responses from './models/responses';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
 
   // state for response
-  const [response, setResponse] = useState('')
+  const [response, setResponse] = useState(responses[getRandomIntInclusive(0, responses.length-1)]) //grab random response
 
   const randomResponse = () => {
     console.log('button clicked')
-
-    setResponse(responses[getRandomIntInclusive(0, responses.length-1)])
-    console.log(response)
+    setResponse(responses[getRandomIntInclusive(0, responses.length-1)]) //grab random response on button click
   }
 
   function getRandomIntInclusive(min, max) {
@@ -24,6 +22,11 @@ function App() {
     return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
   }
 
+  // useeffect to have a response show on page load
+  // useEffect(() => {
+  //   // console.log('response ')
+  //   console.log(`%cmagic 8 ball says: ${response}`, 'color: purple; font-size: 20px;')
+  // }, [response])
 
   return (
     <div className="App">
