@@ -26,9 +26,10 @@ function App() {
     return() => {
       console.log(allResponses)
     }
-  }, [response]) //doesnt trigger reload if coincidentally randonNum is the same twice in a row
+  }, [count]) //doesnt trigger reload if coincidentally randonNum is the same twice in a row.... is there a way to prevent this from running every reload??
 
   const randomResponse = () => {
+
     console.log('button clicked')
     setResponse(responses[getRandomIntInclusive(0, responses.length-1)]) //grab random response on button click
     setCount(count + 1)
@@ -51,8 +52,17 @@ function App() {
       console.log('this is the previous response:', response)
       setPreviousResponse(response)
     }
-  }, [response])
 
+  }, [count]) //took off strict mode and realized this must also listen out for a button click instead of response change bc if response happens to repeat it will not trigger this
+
+
+
+  // trying something random
+  const Arthur = {
+    name: "Arthur Bernier",
+    age: "35",
+    email: "ceo@arthurbernierjr.com",
+  }
 
   return (
     <div className="App">
@@ -69,12 +79,22 @@ function App() {
         <h3>Track Record <span>Total responses: {allResponses.length}</span></h3>
         
         <ol>
-          {allResponses.map((resp) => {
+          {allResponses.map((resp, i) => {
             return (
-              <List response={resp} />
+              <List response={resp} key={i} />
             )
           })}
         </ol>
+      </div>
+
+      <div className='random'>
+        <h2>trying something random</h2>
+        <p>using Object.keys to iterate over an object. week 8 day 1 class notes</p>
+        {Object.keys(Arthur).map((key, index) => {
+          return (
+          <p> {key}: {Arthur[key]} </p>
+          )
+        })}
       </div>
 
     </div>

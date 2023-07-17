@@ -1,8 +1,8 @@
 import React from 'react'
 
-function List( {response} ) {
+function List( {response, key} ) {
   return (
-    <li>
+    <li key={key}>
       {response}
     </li>
   )
